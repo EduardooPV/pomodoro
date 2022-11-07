@@ -6,6 +6,5 @@ const SUPABASE_URL = "https://sfosnmdsnfwirvvdltub.supabase.co";
 const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 (async () => {
-  const { data, error } = await sb.from("user").select();
-  console.log(data);
+  // Query
 })();
