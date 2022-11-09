@@ -7,10 +7,29 @@
     <title>Pomodoro</title>
   </head>
   <body>
-    <button onclick="{showNotification()}">Notification</button>
+    <button id="twentyFive" value="25" onclick={tradeTimerCountdown(event)}>25</button>
+    <button id="thirty" value="30" onclick={tradeTimerCountdown(event)}>30</button>
+    <button id="thirtyFive" value="35" onclick={tradeTimerCountdown(event)}>35</button>
+
+    <br>
+    <br>
+
+    <span id="minutes"></span>
+    <span>:</span>
+    <span id="seconds"></span>
+
+    <p id="sum"></p>
+
+    <button onclick="clearDatabase()">Limpar banco</button>
+
+
+    <button onclick="Countdown.start()" id="startButton">Começar</button>
+    <button onclick="Countdown.pause()" id="stopButton" disabled>Pausar</button>
+    <button onclick="Countdown.clear()" id="clearButton" disabled>Parar</button>
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="./scripts/supabase.js"></script>
     <script src="./electron//notification.js"></script>
-    <script src="scripts/supabase.js"></script>
+    <script src="./scripts/countdown.js"></script>
   </body>
 </html>
