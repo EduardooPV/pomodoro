@@ -1,0 +1,7 @@
+button {
+  background: red;
+}
+
+.button__timer__selected {
+  background: blue;
+}

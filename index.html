@@ -5,11 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pomodoro</title>
+
+    <link rel="stylesheet" href="styles/reset.css">
   </head>
   <body>
-    <button id="twentyFive" value="25" onclick={tradeTimerCountdown(event)}>25</button>
-    <button id="thirty" value="30" onclick={tradeTimerCountdown(event)}>30</button>
-    <button id="thirtyFive" value="35" onclick={tradeTimerCountdown(event)}>35</button>
+    <button id="twentyFive" value="25" onclick={tradeTimerCountdown(event)} >25</button>
+    <button id="thirty" value="30" onclick={tradeTimerCountdown(event)} class="button__timer__selected">30</button>
+    <button id="thirtyFive" value="35" onclick={tradeTimerCountdown(event)} >35</button>
 
     <br>
     <br>
@@ -23,7 +25,7 @@
     <button onclick="clearDatabase()">Limpar banco</button>
 
 
-    <button onclick="Countdown.start()" id="startButton">Começar</button>
+    <button onclick="Countdown.start()" id="startButton" autofocus>Começar</button>
     <button onclick="Countdown.pause()" id="stopButton" disabled>Pausar</button>
     <button onclick="Countdown.clear()" id="clearButton" disabled>Parar</button>
 

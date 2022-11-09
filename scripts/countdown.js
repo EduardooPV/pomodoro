@@ -1,4 +1,4 @@
-var minutes = 25;
+var minutes = 30;
 var seconds = "00";
 
 var secondsDB = 0
@@ -13,6 +13,18 @@ const thirtyFive = document.getElementById("thirtyFive")
 function tradeTimerCountdown(event) {
   minutes = event.target.value
   minutesHTML.innerHTML = minutes
+
+  var buttonsContainClassname = document.getElementsByClassName("button__timer__selected");
+
+  for (var i = 0; i < buttonsContainClassname.length; i++) {
+    if (buttonsContainClassname[i].className.includes('button__timer__selected')) {
+      buttonsContainClassname[i].className = '';
+    }
+  }
+
+  let buttonSelected = document.getElementById(event.srcElement.id)
+
+  buttonSelected.classList.toggle("button__timer__selected");
 }
 
 // Timers
@@ -28,7 +40,7 @@ minutesHTML.innerHTML = minutes
 secondsHTML.innerHTML = seconds
 
 const Countdown = {
-  start() {    
+  start() {
     reduceTimer = setInterval(reduceMinutesAndSeconds, 100)
 
     function reduceMinutesAndSeconds() {
@@ -82,11 +94,13 @@ const ButtonOptions = {
   start() {
     startButton.disabled = true
     stopButton.disabled = false
+    stopButton.focus()
     clearButton.disabled = false
   },
   pause() {
     stopButton.disabled = true
     startButton.disabled = false
+    startButton.focus()
     clearButton.disabled = false
   },
   clear() {
