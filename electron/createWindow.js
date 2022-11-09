@@ -11,6 +11,11 @@ function createWindow() {
 
   win.loadFile("../index.html");
 
+  win.on('close', event => {
+    event.preventDefault();
+    win.hide();
+  })
+
   return win
 }
 

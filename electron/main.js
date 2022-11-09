@@ -5,15 +5,6 @@ require('electron-reloader')(module)
 function App() {
   const win = require("./createWindow.js");
   const tray = require("./createTray.js")
-
-  tray.on('click', () => {
-    if (win.isVisible()) {
-      win.hide()
-    } else {
-      win.show()
-      win.focus()
-    }
-  })
 }
 
 app.whenReady().then(App);
