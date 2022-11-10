@@ -11,6 +11,8 @@ const thirty = document.getElementById("thirty")
 const thirtyFive = document.getElementById("thirtyFive")
 
 function tradeTimerCountdown(event) {
+  Countdown.clear()
+
   minutes = event.target.value
   minutesHTML.innerHTML = minutes
 
@@ -41,7 +43,10 @@ secondsHTML.innerHTML = seconds
 
 const Countdown = {
   start() {
-    reduceTimer = setInterval(reduceMinutesAndSeconds, 100)
+    stopButton.classList.remove("hideButtonOption")
+    clearButton.classList.remove("hideButtonOption")
+
+    reduceTimer = setInterval(reduceMinutesAndSeconds, 1000)
 
     function reduceMinutesAndSeconds() {
       seconds = seconds - 1;
@@ -80,13 +85,15 @@ const Countdown = {
 
   clear() {
     saveSecondsInDatabase(secondsDB)
-    minutes = 25;
+    minutes = 30;
     seconds = "00";
     minutesHTML.innerHTML = minutes
     secondsHTML.innerHTML = seconds
     ButtonOptions.clear()
+    twentyFive.classList.remove("button__timer__selected")
+    thirtyFive.classList.remove("button__timer__selected")
+    thirty.classList.add("button__timer__selected");
     clearInterval(reduceTimer)
-    window.location.reload()
   }
 }
 

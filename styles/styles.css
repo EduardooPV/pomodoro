@@ -1,0 +1,121 @@
+:root {
+  --white: #FFFFFF;
+  --black: #000000;
+  --neutral100: #FBFBFB;
+  --neutral200: #C2BDBD;
+  --neutral300: #BABABA;
+  --neutral400: #767676;
+  --neutral450: #555555;
+  --neutral500: #232222;
+  --neutral700: #171515;
+  --primary100: #FFC16E;
+  --primary200: #FFBD65;
+  --primary250: #ffaD20;
+  --primary300: #F89D24;
+  --primary400: #CC7500;
+  --primary500: #B16500;
+  --heading: #F8F8F8;
+  --info: #BBBBBB;
+  --background: #1A1D23; 
+}
+
+main {
+  width: 100%;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background: var(--background);
+}
+
+main header {
+  margin-bottom: 20px;
+
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+main header button {
+  padding: 8px;
+
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  border-radius: 4px;
+
+  font-size: 50px;
+  color: var(--info);
+
+  transition: all 0.2s;
+}
+
+main header .button__timer__selected {
+  background: var(--primary300);
+  color: var(--heading);
+}
+
+main .timer {
+  margin: 20px 0;
+  padding: 10px 0;
+  
+  display: flex;
+  justify-content: center;
+  gap: 2px;
+  
+  border-top: 2px solid var(--neutral450);
+  border-bottom: 2px solid var(--neutral450);
+}
+
+main .timer span {
+  font-size: 120px;
+  font-weight: bold;
+  font-family: sans-serif;
+  color: var(--white);
+}
+
+main .options {
+  width: 300px;
+
+  margin-top: 20px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+
+main .options div {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+main .options button {
+  width: 100%;
+  padding: 10px 20px;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  border-radius: 4px;
+  background: var(--primary300);
+
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--neutral700);
+}
+
+main .options button:disabled {
+  cursor: not-allowed;;
+  background: var(--primary500);
+
+  font-weight: bold;
+  color: var(--neutral500);
+}
+
+.hideButtonOption {
+  display: none;
+}
