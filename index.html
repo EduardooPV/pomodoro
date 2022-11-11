@@ -13,20 +13,21 @@
 
 <body>
   <main>
+
+    <audio src="assets/start.mp3" id="playSound"></audio>
+    <audio src="assets/clock.mp3" id="tradeTimer"></audio>
+
     <header>
       <button id="twentyFive" value="25" onclick={tradeTimerCountdown(event)}>25</button>
       <button id="thirty" value="30" onclick={tradeTimerCountdown(event)} class="button__timer__selected">30</button>
       <button id="thirtyFive" value="35" onclick={tradeTimerCountdown(event)}>35</button>
     </header>
-    
+
     <section class="timer">
       <span id="minutes"></span>
-      <span>:</span>
+      <span class="dots">:</span>
       <span id="seconds"></span>
     </section>
-    <!-- <p id="sum"></p> -->
-
-    <!-- <button onclick="clearDatabase()">Limpar banco</button> -->
 
 
     <section class="options">
@@ -36,6 +37,9 @@
         <button onclick="Countdown.clear()" id="clearButton" class="hideButtonOption" disabled>PARAR</button>
       </div>
     </section>
+
+    <button onclick="clearDatabase()">Limpar banco</button>
+    <p id="sum" style="color: white"></p>
   </main>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>

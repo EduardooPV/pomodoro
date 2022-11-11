@@ -5,12 +5,20 @@ var secondsDB = 0
 
 var reduceTimer = null
 
+const playSound = document.getElementById("playSound")
+const tradeTimer = document.getElementById("tradeTimer")
+playSound.volume = 0.4
+tradeTimer.volume = 0.3
+
 // Select minutes to focus
 const twentyFive = document.getElementById("twentyFive")
 const thirty = document.getElementById("thirty")
 const thirtyFive = document.getElementById("thirtyFive")
 
 function tradeTimerCountdown(event) {
+  tradeTimer.pause();
+  tradeTimer.currentTime = 0;
+  tradeTimer.play()
   Countdown.clear()
 
   minutes = event.target.value
@@ -43,6 +51,7 @@ secondsHTML.innerHTML = seconds
 
 const Countdown = {
   start() {
+    playSound.play()
     stopButton.classList.remove("hideButtonOption")
     clearButton.classList.remove("hideButtonOption")
 
@@ -58,6 +67,7 @@ const Countdown = {
         minutes = minutes - 1
 
         if (minutes <= 0) {
+          playSound.play()
           clearInterval(reduceTimer);
           saveSecondsInDatabase(secondsDB)
           minutes = "00";
@@ -74,8 +84,6 @@ const Countdown = {
     }
 
     ButtonOptions.start()
-
-    showNotification("Começou", "Lorem ipsum it dolor.")
   },
 
   pause() {

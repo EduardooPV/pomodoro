@@ -56,6 +56,7 @@ main header button {
 main header .button__timer__selected {
   background: var(--primary300);
   color: var(--heading);
+  font-weight: bold;
 }
 
 main .timer {
@@ -75,6 +76,11 @@ main .timer span {
   font-weight: bold;
   font-family: sans-serif;
   color: var(--white);
+}
+
+main .timer .dots {
+  line-height: 0.8;
+  color: var(--neutral100);
 }
 
 main .options {
@@ -98,22 +104,30 @@ main .options button {
   width: 100%;
   padding: 10px 20px;
   background: transparent;
-  border: 0;
   cursor: pointer;
   border-radius: 4px;
-  background: var(--primary300);
-
+  
   font-size: 18px;
   font-weight: bold;
+  /* background: var(--primary300); */
+  /* color: var(--neutral700); */
+  /* border: 0; */
+  background: transparent;
+  color: var(--primary300);
+  border: 2px solid var(--primary300);
+}
+
+main .options > button {
+  background: var(--primary300);
   color: var(--neutral700);
+  border: 0;
 }
 
 main .options button:disabled {
   cursor: not-allowed;;
-  background: var(--primary500);
 
-  font-weight: bold;
-  color: var(--neutral500);
+
+  filter: blur(1px);
 }
 
 .hideButtonOption {

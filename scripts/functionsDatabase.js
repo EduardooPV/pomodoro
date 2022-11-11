@@ -19,8 +19,8 @@ async function getTimer() {
     initialValue
   );
 
+  document.getElementById("sum").innerHTML = `Total de tempo: ${convertToHours(sumSeconds)}:${convertToMinutes(sumSeconds)}:${convertToSeconds(sumSeconds)}`
   return sumSeconds
-  // document.getElementById("sum").innerHTML = `Total de tempo: ${convertToHours(sumSeconds)}:${convertToMinutes(sumSeconds)}:${convertToSeconds(sumSeconds)}`
 }
 
 async function clearDatabase() {
