@@ -1,14 +1,32 @@
-async function saveSecondsInDatabase(seconds) {
-  await sb
-    .from('user')
-    .insert({ focus: seconds })
-    .select()
+async function saveInformationInDatabase(seconds, turn = 0) {
+  const { data } = await sb.auth.getUser()
+
+  if (data.user !== null) {
+    await sb
+      .from('focus')
+      .insert({ focus: seconds, person_id: data.user.email, turn: turn })
+  }
+}
+
+async function getTimerPerPerson() {
+  const userLogged = await sb.auth.getUser()
+
+  const { data, error } = await sb
+    .from('focus')
+    .select(`focus, person_id`)
+    .eq('person_id', userLogged.data.user.email)
+
+  console.log(data)
+  console.log(error)
 }
 
 async function getTimer() {
+  const userLogged = await sb.auth.getUser()
+
   const { data } = await sb
-    .from('user')
-    .select('focus')
+    .from('focus')
+    .select(`focus, person_id`)
+    .eq('person_id', userLogged.data.user?.email)
 
   const focusDate = data.map(data => data.focus)
 
@@ -19,15 +37,41 @@ async function getTimer() {
     initialValue
   );
 
-  document.getElementById("sum").innerHTML = `Total de tempo: ${convertToHours(sumSeconds)}:${convertToMinutes(sumSeconds)}:${convertToSeconds(sumSeconds)}`
+  document.getElementById("sum").innerHTML = `${convertToHours(sumSeconds)}:${convertToMinutes(sumSeconds)}:${convertToSeconds(sumSeconds)}`
   return sumSeconds
+}
+
+async function getTurns() {
+  const userLogged = await sb.auth.getUser()
+
+  const { data, error } = await sb
+    .from('focus')
+    .select(`turn, person_id`)
+    .eq('person_id', userLogged.data.user?.email)
+
+  const turnDate = data.map(data => data.turn)
+
+  const initialValue = 0;
+
+  const totalTurns = turnDate.reduce(
+    (previousValue, currentValue) => previousValue + currentValue,
+    initialValue
+  );
+
+  document.getElementById("turn").innerHTML = `${totalTurns}`
+  return totalTurns
 }
 
 async function clearDatabase() {
   await sb
-    .from('user')
+    .from('focus')
     .delete()
     .neq("focus", 0)
+
+  await sb
+    .from('focus')
+    .delete()
+    .neq("turn", 0)
 
   window.location.reload()
 }

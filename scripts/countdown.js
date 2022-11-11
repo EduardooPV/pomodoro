@@ -51,6 +51,7 @@ secondsHTML.innerHTML = seconds
 
 const Countdown = {
   start() {
+    localStorage.setItem("TESTE", true)
     playSound.play()
     stopButton.classList.remove("hideButtonOption")
     clearButton.classList.remove("hideButtonOption")
@@ -69,13 +70,17 @@ const Countdown = {
         if (minutes <= 0) {
           playSound.play()
           clearInterval(reduceTimer);
-          saveSecondsInDatabase(secondsDB)
-          minutes = "00";
-          seconds = "04";
+          saveInformationInDatabase(secondsDB, 1)
+          minutes = 30;
+          seconds = 0;
           minutesHTML.innerHTML = minutes
           secondsHTML.innerHTML = seconds
           ButtonOptions.clear()
-          showNotification("Acabou", "Lorem ipsum it dolor.")
+          showNotification("Parabéns!!", "Você finalizou mais uma sprint, mantenha o foco!")
+        }
+        
+        if (minutes <= 4) {
+          showNotification("5 minutos", "Restam cinco minutos, organize suas anotações.")
         }
       }
 
@@ -91,8 +96,7 @@ const Countdown = {
     clearInterval(reduceTimer)
   },
 
-  clear() {
-    saveSecondsInDatabase(secondsDB)
+  async clear() {
     minutes = 30;
     seconds = "00";
     minutesHTML.innerHTML = minutes
@@ -101,6 +105,7 @@ const Countdown = {
     twentyFive.classList.remove("button__timer__selected")
     thirtyFive.classList.remove("button__timer__selected")
     thirty.classList.add("button__timer__selected");
+    await saveInformationInDatabase(secondsDB)
     clearInterval(reduceTimer)
   }
 }
@@ -125,10 +130,5 @@ const ButtonOptions = {
   }
 }
 
-const DatabaseOperations = {
-  clear() {
-    clearDatabase()
-  }
-}
-
 getTimer()
+getTurns()

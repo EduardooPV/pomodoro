@@ -23,6 +23,8 @@ main {
   width: 100%;
   height: 100vh;
 
+  position: relative;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -31,7 +33,58 @@ main {
   background: var(--background);
 }
 
+main .container__options {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+main .container__user {
+  position: absolute;
+
+  left: 10px;
+  top: 10px;
+}
+
+main .container__user p {
+  color: #ccc;
+  font-size: 16px;
+}
+
+main .container__user span {
+  color: white;
+  font-size: 14px;
+}
+
+main .container__button__user, main .container__button__graph {
+  padding: 2px;
+
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+main .container__button__user:hover, main .container__button__graph:hover{
+  filter: opacity(0.7);
+  border: 1px solid var(--primary300);
+}
+
+main .container__button__user svg, main .container__button__graph svg  {
+  width: 30px;
+  height: 30px;
+
+  fill: #F89D24;
+  stroke: #F89D24;
+}
+
 main header {
+  margin-top: 40px;
   margin-bottom: 20px;
 
   display: flex;
@@ -51,6 +104,10 @@ main header button {
   color: var(--info);
 
   transition: all 0.2s;
+}
+
+main header button:hover {
+  color: white;
 }
 
 main header .button__timer__selected {
@@ -109,12 +166,16 @@ main .options button {
   
   font-size: 18px;
   font-weight: bold;
-  /* background: var(--primary300); */
-  /* color: var(--neutral700); */
-  /* border: 0; */
+
   background: transparent;
   color: var(--primary300);
   border: 2px solid var(--primary300);
+
+  transition: all 0.2s;
+}
+
+main .options button:hover {
+  filter: opacity(0.8);
 }
 
 main .options > button {
@@ -126,10 +187,9 @@ main .options > button {
 main .options button:disabled {
   cursor: not-allowed;;
 
-
   filter: blur(1px);
 }
 
 .hideButtonOption {
-  display: none;
+  opacity: 0;
 }

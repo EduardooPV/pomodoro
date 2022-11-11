@@ -1,0 +1,120 @@
+.modalAccount {
+  width: 80%;
+  height: fit-content;
+
+  margin: 0 auto;
+  padding: 20px;
+  
+  position: absolute;
+  top: 20%;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  
+  z-index: 2;
+
+  display: none;
+  background: var(--neutral500);
+  border: 1px solid var(--primary300);
+}
+
+.showModal {
+  display: block;
+}
+
+.modalAccount__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  position: relative;
+}
+
+
+
+.modalAccount__closeModal {
+  position: absolute;
+  right: -10px;
+  top: -10px;
+  padding: 0;
+  line-height: 0;
+
+  color: white;
+
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.modalAccount__closeModal svg {
+  width: 30px;
+  height: 30px;
+}
+
+.modalAccount__closeModal:hover {
+  filter: opacity(0.7);
+  border: 1px solid var(--primary300);
+}
+
+.modalAccount__content h2 {
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.modalAccount__content p{
+  margin: 10px 0;
+  font-weight: bold;
+}
+
+.modalAccount__content label {
+  width: 100%;
+
+  margin: 20px 0 10px 0;
+
+  font-size: 18px;
+
+  color: var(--neutral100);
+}
+
+.modalAccount__content input {
+  width: 100%;
+  height: 25px;
+}
+
+.modalAccount__userOptions {
+  width: 100%;
+
+  margin-top: 20px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+
+.modalAccount__userOptions button {
+   width: 100%;
+  padding: 8px 14px;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 4px;
+  
+  font-size: 18px;
+  font-weight: bold;
+  background: transparent;
+  color: var(--primary300);
+  border: 2px solid var(--primary300);
+
+  transition: all 0.2s;
+}
+
+.modalAccount__userOptions button:hover {
+  filter: opacity(0.8);
+}
+
+.hideButton {
+  display: none;
+}

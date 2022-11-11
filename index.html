@@ -7,15 +7,46 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pomodoro</title>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="styles/reset.css">
-  <link rel="stylesheet" href="styles/styles.css">
+  <link rel="stylesheet" href="styles/home.css">
+  <link rel="stylesheet" href="styles/modalAccount.css">
+  <link rel="stylesheet" href="styles/modalGraph.css">
 </head>
 
 <body>
   <main>
-
     <audio src="assets/start.mp3" id="playSound"></audio>
     <audio src="assets/clock.mp3" id="tradeTimer"></audio>
+
+    <div class="container__user">
+      <p>Bem vindo:</p>
+      <span id="user"></span>
+    </div>
+
+    <div class="container__options">
+      <button class="container__button__user" onclick="toggleModalAccount()"><svg class="svg-icon"
+          viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M843.282963 870.115556c-8.438519-140.515556-104.296296-257.422222-233.908148-297.14963C687.881481 536.272593 742.4 456.533333 742.4 364.088889c0-127.241481-103.158519-230.4-230.4-230.4S281.6 236.847407 281.6 364.088889c0 92.444444 54.518519 172.183704 133.12 208.877037-129.611852 39.727407-225.46963 156.634074-233.908148 297.14963-0.663704 10.903704 7.964444 20.195556 18.962963 20.195556l0 0c9.955556 0 18.299259-7.774815 18.962963-17.73037C227.745185 718.506667 355.65037 596.385185 512 596.385185s284.254815 122.121481 293.357037 276.195556c0.568889 9.955556 8.912593 17.73037 18.962963 17.73037C835.318519 890.311111 843.946667 881.019259 843.282963 870.115556zM319.525926 364.088889c0-106.287407 86.186667-192.474074 192.474074-192.474074s192.474074 86.186667 192.474074 192.474074c0 106.287407-86.186667 192.474074-192.474074 192.474074S319.525926 470.376296 319.525926 364.088889z" />
+        </svg></button>
+
+      <button class="container__button__graph" onclick="toggleModalGraph()">
+        <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512">
+          <path d="M32 32v432a16 16 0 0016 16h432" fill="none" stroke="#F89D24" stroke-linecap="round"
+            stroke-linejoin="round" stroke-width="28" />
+          <rect x="96" y="224" width="80" height="192" rx="20" ry="20" fill="none" stroke="#F89D24"
+            stroke-linecap="round" stroke-linejoin="round" stroke-width="28" />
+          <rect x="240" y="176" width="80" height="240" rx="20" ry="20" fill="none" stroke="#F89D24"
+            stroke-linecap="round" stroke-linejoin="round" stroke-width="28" />
+          <rect x="383.64" y="112" width="80" height="304" rx="20" ry="20" fill="none" stroke="#F89D24"
+            stroke-linecap="round" stroke-linejoin="round" stroke-width="28" />
+        </svg>
+      </button>
+    </div>
 
     <header>
       <button id="twentyFive" value="25" onclick={tradeTimerCountdown(event)}>25</button>
@@ -37,15 +68,84 @@
         <button onclick="Countdown.clear()" id="clearButton" class="hideButtonOption" disabled>PARAR</button>
       </div>
     </section>
-
-    <button onclick="clearDatabase()">Limpar banco</button>
-    <p id="sum" style="color: white"></p>
   </main>
+
+  <section id="modalAccount" class="modalAccount">
+    <div class="modalAccount__content">
+      <button onclick="toggleModalAccount()" class="modalAccount__closeModal">
+        <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512">
+          <title>Close</title>
+          <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"
+            d="M368 368L144 144M368 144L144 368" />
+        </svg>
+      </button>
+
+      <p id="error" style="color: white"></p>
+
+      <label for="email">E-mail</label>
+      <input id="email" type="email">
+
+      <label for="password">Password</label>
+      <input id="password" type="password">
+
+
+      <div class="modalAccount__userOptions">
+        <button id="signin" onclick="signIn()">Entrar</button>
+        <button id="signout" onclick="signOut()" class="hideButton">Sair</button>
+        <button id="createAccount" onclick="signUp()">Criar conta</button>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="modalGraph" class="modalGraph">
+    <div class="modalGraph__content">
+      <h2>Acompanhe seu histórico</h2>
+      <button onclick="toggleModalGraph()" class="modalGraph__closeModal">
+        <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512">
+          <title>Close</title>
+          <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"
+            d="M368 368L144 144M368 144L144 368" />
+        </svg>
+      </button>
+
+      <div class="modalGraph__content__infos">
+
+        <p>Tempo de foco:</p>
+        <span id="sum"></span>
+
+        <p>Focos realizados:</p>
+        <span id="turn"></span>
+
+        <p id="sum"></p>
+      </div>
+
+      <p>Limpar seu histórico?
+        <button onclick="clearDatabase()">Limpar
+          <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512">
+            <title>Trash Bin</title>
+            <path d="M432 144l-28.67 275.74A32 32 0 01371.55 448H140.46a32 32 0 01-31.78-28.26L80 144" fill="none"
+              stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" />
+            <rect x="32" y="64" width="448" height="80" rx="16" ry="16" fill="none" stroke="currentColor"
+              stroke-linecap="round" stroke-linejoin="round" stroke-width="32" />
+            <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"
+              d="M312 240L200 352M312 352L200 240" />
+          </svg>
+        </button>
+      </p>
+
+    </div>
+  </section>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="./supabase.js"></script>
   <script src="./scripts/functionsDatabase.js"></script>
+  <script src="./scripts/signIn.js"></script>
+  <script src="./scripts/signOut.js"></script>
+  <script src="./scripts/signUp.js"></script>
+  <script src="./scripts/buttonsLogin.js"></script>
   <script src="./scripts/countdown.js"></script>
+  <script src="./scripts/modal.js"></script>
   <script src="./electron//notification.js"></script>
 </body>
 

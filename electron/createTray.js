@@ -3,7 +3,7 @@ const win = require("./createWindow.js");
 const { resolve } = require("path")
 
 function createTray() {
-  const iconPath = resolve(__dirname, "../", "assets", "notification.png")
+  const iconPath = resolve(__dirname, "../", "assets", "icon.png")
 
   const tray = new Tray(iconPath);
 

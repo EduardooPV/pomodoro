@@ -1,0 +1,128 @@
+.modalGraph {
+  width: 80%;
+  height: fit-content;
+
+  margin: 0 auto;
+  padding: 20px;
+  
+  position: absolute;
+  top: 20%;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  
+  z-index: 2;
+
+  display: none;
+  background: var(--neutral500);
+  border: 1px solid var(--primary300);
+}
+
+.showModal {
+  display: block;
+}
+
+.modalGraph__closeModal {
+  position: absolute;
+  right: -10px;
+  top: -10px;
+  padding: 0;
+  line-height: 0;
+
+  color: white;
+
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.modalGraph__closeModal svg {
+  width: 30px;
+  height: 30px;
+}
+
+.modalGraph__closeModal:hover {
+  filter: opacity(0.7);
+  border: 1px solid var(--primary300);
+}
+
+.modalGraph__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  position: relative;
+}
+
+.modalGraph__content__infos {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.modalGraph__content__infos p {
+  margin-bottom: 10px;
+  font-size: 20px;
+  color: white;
+}
+
+.modalGraph__content__infos span {
+  margin-bottom: 20px;
+  font-size: 30px;
+  color: var(--neutral200);
+}
+
+.modalGraph__content h2 {
+  width: 100%;
+  margin-top: 40px;
+  margin-bottom: 50px;
+
+  font-size: 22px;
+  font-weight: bold;
+  color: white;
+  text-align: start;
+}
+
+.modalGraph__content > p {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 4px;
+  
+  margin-top: 20px;
+  line-height: 0;
+
+  font-size: 15px;
+  font-weight: bold;
+  color: white;
+}
+
+
+.modalGraph__content button:last-child {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  background: transparent;
+  cursor: pointer;
+  
+  font-size: 14px;
+  background: transparent;
+  color: var(--primary300);
+  border: 0;
+  
+  transition: all 0.2s;
+}
+
+.modalGraph__content button:last-child svg {
+  width: 18px;
+  height: 18px;
+}
+
+.modalGraph__content button:last-child:hover {
+  filter: opacity(0.8);
+}
