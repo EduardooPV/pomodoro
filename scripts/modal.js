@@ -13,9 +13,7 @@ async function toggleModalGraph() {
   var userIsNotLoggedClassname = document.getElementsByClassName("userLogged");
   var userLoggedClassname = document.getElementsByClassName("userIsNotLogged");
 
-  // console.log(userIsNotLogged)
   const { data } = await sb.auth.getUser()
-
 
   if (data.user == null) {
     for (var i = 0; i < userIsNotLoggedClassname.length; i++) {

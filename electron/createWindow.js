@@ -9,7 +9,7 @@ function createWindow() {
     // autoHideMenuBar: true,
   });
 
-  win.loadFile("../index.html");
+  win.loadFile("index.html");
 
   win.on('close', event => {
     event.preventDefault();

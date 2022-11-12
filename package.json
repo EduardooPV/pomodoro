@@ -1,17 +1,24 @@
 {
   "name": "pomodoro",
   "version": "1.0.0",
-  "description": "",
+  "description": "Pomodoro",
   "main": "electron/main.js",
   "scripts": {
     "dev": "electron electron/main.js",
-    "package": "npx electron-packager . --icon assets/icon_exe.icns --out=packages"
+    "package": "npx electron-packager . --icon=assets/icon_exe.icns --platform=win32 --arch=x64",
+    "app:dist": "electron-builder"
   },
   "keywords": [],
-  "author": "",
+  "author": "Luiz Eduardo",
   "license": "ISC",
   "devDependencies": {
     "electron": "^21.2.2",
+    "electron-builder": "^23.6.0",
     "electron-reloader": "^1.2.3"
+  },
+  "build": {
+    "win": {
+      "target": "NSIS"
+    }
   }
 }

@@ -1,6 +1,5 @@
 const { app, BrowserWindow } = require('electron');
-
-require('electron-reloader')(module)
+// require('electron-reloader')(module)
 
 function App() {
   const win = require("./createWindow.js");
