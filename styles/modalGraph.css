@@ -62,13 +62,20 @@
   flex-direction: column;
 }
 
-.modalGraph__content__infos p {
+.modalGraph__content__infos  {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.modalGraph__content__infos  p {
   margin-bottom: 10px;
   font-size: 20px;
   color: white;
 }
 
-.modalGraph__content__infos span {
+.modalGraph__content__infos  span {
+  display: block;
   margin-bottom: 20px;
   font-size: 30px;
   color: var(--neutral200);
@@ -85,7 +92,7 @@
   text-align: start;
 }
 
-.modalGraph__content > p {
+.modalGraph__content .clearHistory {
   width: 100%;
 
   display: flex;

@@ -80,19 +80,26 @@
         </svg>
       </button>
 
-      <p id="error" style="color: white"></p>
+      <div class="userIsNotLogged">
+        <p id="error" style="color: white"></p>
 
-      <label for="email">E-mail</label>
-      <input id="email" type="email">
+        <label for="email">E-mail</label>
+        <input id="email" type="email">
 
-      <label for="password">Password</label>
-      <input id="password" type="password">
+        <label for="password">Password</label>
+        <input id="password" type="password">
 
 
-      <div class="modalAccount__userOptions">
-        <button id="signin" onclick="signIn()">Entrar</button>
+        <div class="modalAccount__userOptions">
+          <button id="signin" onclick="signIn()">Entrar</button>
+
+          <button id="createAccount" onclick="signUp()">Criar conta</button>
+        </div>
+      </div>
+
+      <div class="userLogged">
+        <p>Você já está logado!</p>
         <button id="signout" onclick="signOut()" class="hideButton">Sair</button>
-        <button id="createAccount" onclick="signUp()">Criar conta</button>
       </div>
 
     </div>
@@ -110,30 +117,32 @@
       </button>
 
       <div class="modalGraph__content__infos">
+        <div class="userLogged">
+          <p>Tempo de foco:</p>
+          <span id="sum"></span>
 
-        <p>Tempo de foco:</p>
-        <span id="sum"></span>
+          <p>Focos realizados:</p>
+          <span id="turn"></span>
 
-        <p>Focos realizados:</p>
-        <span id="turn"></span>
+          <p class="clearHistory">Limpar seu histórico?
+            <button onclick="clearDatabase()">Limpar
+              <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512">
+                <title>Trash Bin</title>
+                <path d="M432 144l-28.67 275.74A32 32 0 01371.55 448H140.46a32 32 0 01-31.78-28.26L80 144" fill="none"
+                  stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" />
+                <rect x="32" y="64" width="448" height="80" rx="16" ry="16" fill="none" stroke="currentColor"
+                  stroke-linecap="round" stroke-linejoin="round" stroke-width="32" />
+                <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"
+                  d="M312 240L200 352M312 352L200 240" />
+              </svg>
+            </button>
+          </p>
+        </div>
 
-        <p id="sum"></p>
+        <div class="userIsNotLogged">
+          <p>Entre para ver seu histórico</p>
+        </div>
       </div>
-
-      <p>Limpar seu histórico?
-        <button onclick="clearDatabase()">Limpar
-          <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512">
-            <title>Trash Bin</title>
-            <path d="M432 144l-28.67 275.74A32 32 0 01371.55 448H140.46a32 32 0 01-31.78-28.26L80 144" fill="none"
-              stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" />
-            <rect x="32" y="64" width="448" height="80" rx="16" ry="16" fill="none" stroke="currentColor"
-              stroke-linecap="round" stroke-linejoin="round" stroke-width="32" />
-            <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"
-              d="M312 240L200 352M312 352L200 240" />
-          </svg>
-        </button>
-      </p>
-
     </div>
   </section>
 

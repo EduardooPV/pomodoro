@@ -6,9 +6,7 @@ function createWindow() {
     width: 450,
     height: 600,
     icon: path.join(__dirname, "../", "assets", "icon.png"),
-    webPreferences: {
-      nodeIntegration: true,
-    },
+    // autoHideMenuBar: true,
   });
 
   win.loadFile("../index.html");
