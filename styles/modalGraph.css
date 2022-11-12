@@ -14,8 +14,9 @@
   z-index: 2;
 
   display: none;
-  background: var(--neutral500);
+  background: #232222f5;
   border: 1px solid var(--primary300);
+  border-radius: 4px;
 }
 
 .showModal {

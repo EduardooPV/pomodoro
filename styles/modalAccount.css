@@ -14,8 +14,9 @@
   z-index: 2;
 
   display: none;
-  background: var(--neutral500);
+  background: #232222f5;
   border: 1px solid var(--primary300);
+  border-radius: 4px;
 }
 
 .showModal {
@@ -68,12 +69,12 @@
   margin-bottom: 20px;
 }
 
-.modalAccount__content div p{
+.modalAccount__content form p{
   margin: 10px 0;
   font-weight: bold;
 }
 
-.modalAccount__content div label {
+.modalAccount__content form label {
   width: 100%;
 
   display: block;
@@ -84,9 +85,13 @@
   color: var(--neutral100);
 }
 
-.modalAccount__content div input {
+.modalAccount__content form input {
   width: 100%;
-  height: 25px;
+  height: 38px;
+  padding: 0 8px;
+  font-size: 18px;
+
+  box-sizing: border-box;
 }
 
 .modalAccount__userOptions {

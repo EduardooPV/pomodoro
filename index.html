@@ -80,14 +80,14 @@
         </svg>
       </button>
 
-      <div class="userIsNotLogged">
+      <form class="userIsNotLogged">
         <p id="error" style="color: white"></p>
 
         <label for="email">E-mail</label>
-        <input id="email" type="email">
+        <input id="email" type="email" placeholder="exemplo@gmail.com" required>
 
         <label for="password">Password</label>
-        <input id="password" type="password">
+        <input id="password" type="password" placeholder="************" minlength="6" required>
 
 
         <div class="modalAccount__userOptions">
@@ -95,7 +95,7 @@
 
           <button id="createAccount" onclick="signUp()">Criar conta</button>
         </div>
-      </div>
+      </form>
 
       <div class="userLogged">
         <p>Você já está logado!</p>
